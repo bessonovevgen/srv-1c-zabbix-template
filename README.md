@@ -31,6 +31,8 @@ rac - обращается к ras за запрошенными данными
 Запрос показывающий количество тонких клиентов
 /opt/1C/v8.3/x86_64/rac session --cluster=<uuid> list --infobase=<uuid> | grep 1CV8C | wc -l
 
+Графики 
+![screen01](https://github.com/bessonovevgen/srv-1c-linux-zabbix-template/images/screen-01.png)
 
 TODO 
 1. Нужно правила обнаружения.
