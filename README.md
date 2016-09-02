@@ -2,8 +2,8 @@
 
 Мониторинг выполняется с помощью консольных утилит ras и rac через UserParameters
 
-    UserParameter=onec-session,/opt/1C/v8.3/x86_64/rac session --cluster=a809b4ec-05bb-11e5-0483-1ee41d87a254 list --infobase=9dd07d30-635c-11e6-8c88-1ee41d87a254 | grep 1CV8C | wc -l
-    UserParameter=onec-bgj,/opt/1C/v8.3/x86_64/rac session --cluster=a809b4ec-05bb-11e5-0483-1ee41d87a254 list --infobase=9dd07d30-635c-11e6-8c88-1ee41d87a254 | grep BackgroundJob | wc -l
+    UserParameter=onec-session,/opt/1C/v8.3/x86_64/rac session --cluster=<uuid> list --infobase=<uuid> | grep 1CV8C | wc -l
+    UserParameter=onec-bgj,/opt/1C/v8.3/x86_64/rac session --cluster=<uuid> list --infobase=<uuid> | grep BackgroundJob | wc -l
 
 ras - должен быть запущен всегда
 rac - обращается к ras за запрошенными данными
