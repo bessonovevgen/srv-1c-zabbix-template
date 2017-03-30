@@ -38,13 +38,16 @@ rac - обращается к ras за запрошенными данными
 
 # Для windows 
 Установка службы
+
     sc create "1C:Enterprise RAS" binpath= "C:\Program Files\1cv8\Х.Х.Х.ХХХХ\bin\ras.exe cluster --service" displayname= "1C:Enterprise RAS" start= auto 
     net start "1C:Enterprise RAS"
 
 Удаление службы 
+
     sc delete "1C:Enterprise RAS"
 
 настройка zabbix agent
+
     UserParameter=onec-session,"C:\Program Files\1cv8\8.3.9.1850\bin\rac.exe" session --cluster=03692e0b-0c48-4c6c-bf7d-a6dd89ebbd71 list --infobase=1fcffbdb-0fd4-4678-bd8b-95c96fdc419f |  find /c "1CV8C"
     UserParameter=onec-bgj,"C:\Program Files\1cv8\8.3.9.1850\bin\rac.exe" session --cluster=<uuid> list --infobase=<uuid> | find /c "BackgroundJob "
 
