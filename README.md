@@ -1,8 +1,8 @@
-# Проект для организации мониторинга сервера приложений 1С:Предприятия с помощью системы мониторинга Zabbix.
+# Проект для организации мониторинга сервера приложений 1С:Предприятия с помощью системы мониторинга Zabbix
+
 В репозитории пример шаблона и конфигурационные файлы для zabbix-agent для windows и linux платформ.
 
-
-# Мониторинг сервера приложений 1с в Linux
+## Мониторинг сервера приложений 1с в Linux
 
 Мониторинг выполняется с помощью консольных утилит ras и rac через UserParameters
 
@@ -20,19 +20,17 @@ rac - обращается к ras за запрошенными данными
 
 Реализовано два параметра и один график
 
-
 Примеры:
 
 Запрос показывающий количество сеансов
 
     /opt/1C/v8.3/x86_64/rac session --cluster=<uuid> list --infobase=<uuid> | grep app-id | wc -l
 
-
-Получить <uuid> для параметра --cluster
+Получить `<uuid>` для параметра --cluster
 
     /opt/1C/v8.3/x86_64/rac cluster list
 
-Получить <uuid> для --infobase
+Получить `<uuid>` для --infobase
 
     /opt/1C/v8.3/x86_64/rac infobase --cluster=<uuid> summary list
 
@@ -40,13 +38,14 @@ rac - обращается к ras за запрошенными данными
 
     /opt/1C/v8.3/x86_64/rac session --cluster=<uuid> list --infobase=<uuid> | grep 1CV8C | wc -l
 
-# Для windows 
+## Для windows
+
 Установка службы
 
     sc create "1C:Enterprise RAS" binpath= "C:\Program Files\1cv8\Х.Х.Х.ХХХХ\bin\ras.exe cluster --service" displayname= "1C:Enterprise RAS" start= auto 
     net start "1C:Enterprise RAS"
 
-Удаление службы 
+Удаление службы
 
     sc delete "1C:Enterprise RAS"
 
@@ -55,10 +54,10 @@ rac - обращается к ras за запрошенными данными
     UserParameter=onec-session,"C:\Program Files\1cv8\8.3.9.1850\bin\rac.exe" session --cluster=<uuid> list --infobase=<uuid> |  find /c "1CV8C"
     UserParameter=onec-bgj,"C:\Program Files\1cv8\8.3.9.1850\bin\rac.exe" session --cluster=<uuid> list --infobase=<uuid> | find /c "BackgroundJob"
 
-
-Графики 
+Графики
 ![screen01](https://github.com/bessonovevgen/srv-1c-linux-zabbix-template/blob/master/images/screen-01.png)
 
-TODO 
+TODO
+
 1. Нужно правила обнаружения.
 2. Подобрать подходящие (время выполнения/нагрузка на сервер) интервалы опроса параметров.
