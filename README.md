@@ -1,24 +1,22 @@
-# Проект для организации мониторинга сервера приложений 1С:Предприятия с помощью системы мониторинга Zabbix
+# Мониторинг сервера приложений 1С:Предприятия с помощью Zabbix
 
-В репозитории пример шаблона и конфигурационные файлы для zabbix-agent для windows и linux платформ.
+В репозитории пример шаблона и конфигурационные файлы для zabbix-agent для windows и linux.
 
 ## Мониторинг сервера приложений 1с в Linux
 
-Мониторинг выполняется с помощью консольных утилит ras и rac через UserParameters
-
-    UserParameter=onec-session,/opt/1C/v8.3/x86_64/rac session --cluster=<uuid> list --infobase=<uuid> | grep 1CV8C | wc -l
-    UserParameter=onec-bgj,/opt/1C/v8.3/x86_64/rac session --cluster=<uuid> list --infobase=<uuid> | grep BackgroundJob | wc -l
+Мониторинг выполняется с помощью консольных утилит ras и rac через UserParameters (см. пример в `onec-srv-lin.conf`)
 
 ras - должен быть запущен всегда
+
 rac - обращается к ras за запрошенными данными
 
 Запуск ras (на том сервере который нужно мониторить)
 
     /opt/1C/v8.3/x86_64/ras --daemon cluster
 
-Непосредствено сам шаблон для импорта: srv-1c-linux-zabbix-temlate.xml
+Шаблон для импорта: srv-1c-linux-zabbix-temlate.xml
 
-Реализовано два параметра и один график
+Реализовано пять параметров и один график
 
 Примеры:
 
